@@ -1,0 +1,30 @@
+//
+// Prefix header for all source files of the 'chippewa-valley-code-camp-2009' target in the 'chippewa-valley-code-camp-2009' project
+//
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iPhone SDK 3.0 and later."
+#endif
+
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
+
+#import <JSON/JSON.h>
+#import "Connector.h"
+
+#pragma mark -
+#pragma mark Development Logging
+
+#ifdef __DEBUG__
+#define DevLog(a)   NSLog(a)
+#define DevLog2(a, b) NSLog(a, b)
+#define DevLog3(a, b, c) NSLog(a, b, c)
+#else
+#define DevLog(a)
+#define DevLog2(a, b)
+#define DevLog3(a, b, c)
+#endif
