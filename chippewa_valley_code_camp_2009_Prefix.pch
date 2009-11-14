@@ -15,6 +15,7 @@
 
 #import <JSON/JSON.h>
 #import "Connector.h"
+#import "App.h"
 
 #pragma mark -
 #pragma mark Development Logging

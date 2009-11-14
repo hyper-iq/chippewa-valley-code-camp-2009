@@ -254,6 +254,10 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = (
+					"-D",
+					__DEBUG__,
+				);
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
