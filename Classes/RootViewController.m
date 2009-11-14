@@ -38,6 +38,17 @@
     return [[[App sharedApp] tweets] count];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+	CGSize aSize;  
+	  
+	aSize = [[[[[App sharedApp] tweets] objectAtIndex:indexPath.row] text] sizeWithFont:[UIFont systemFontOfSize:18]  
+					 constrainedToSize:CGSizeMake(300.0, 1000.0)  
+					 lineBreakMode:UILineBreakModeTailTruncation]; 
+
+	return aSize.height;
+}
+
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,13 +66,9 @@
     }
     
 	// Configure the cell.
-	// Text Labels
-//	UITextView *tweetText = (UITextView *) [cell viewWithTag:1];
-//	tweetText.text = [[[[App sharedApp] tweets] objectAtIndex:indexPath.row] text];
-//	
-//	UILabel *tweetedAt = (UILabel *) [cell viewWithTag:2];
-//	tweetedAt.text = [Tweet dateDiff:[[[[App sharedApp] tweets] objectAtIndex:indexPath.row] createdAt]];
 	
+	cell.textLabel.font = [UIFont systemFontOfSize:14];
+	cell.textLabel.numberOfLines = 4;
 	cell.textLabel.text = [[[[App sharedApp] tweets] objectAtIndex:indexPath.row] text];
 	cell.detailTextLabel.text = [Tweet dateDiff:[[[[App sharedApp] tweets] objectAtIndex:indexPath.row] createdAt]];
 
