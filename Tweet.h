@@ -11,10 +11,12 @@
 	NSString *tweetID;
 	NSString *text;
 	NSString *createdAt;
+	NSString *profileImage;
 }
 @property (retain) NSString *tweetID;
 @property (retain) NSString *text;
 @property (retain) NSString *createdAt;
+@property (retain) NSString *profileImage;
 
 + (NSString *)dateDiff:(NSString *)origDate;
 

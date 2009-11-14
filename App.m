@@ -25,6 +25,9 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(App);
 	return [NSURL URLWithString:[NSString stringWithFormat:@"http://twitter.com/statuses/user_timeline.json?id=%@",
 								 [[App sharedApp] twitterUserName]]
 			];
+	
+	// 6
+	//return [NSURL URLWithString:[NSString stringWithString:@"http://twitter.com/statuses/public_timeline.json"]];
 }
 
 #pragma mark -
@@ -45,7 +48,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(App);
 		[tempTweet setTweetID:[tweet valueForKey:@"id"]];
 		[tempTweet setText:[tweet valueForKey:@"text"]];
 		[tempTweet setCreatedAt:[tweet valueForKey:@"created_at"]];
-
+		[tempTweet setProfileImage:[[tweet valueForKey:@"user"] valueForKey:@"profile_image_url"]];
+		
 		// Add to Return array
 		[returnArray addObject:tempTweet];
     }

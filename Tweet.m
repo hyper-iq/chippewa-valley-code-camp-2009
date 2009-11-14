@@ -14,6 +14,7 @@
 @synthesize tweetID;
 @synthesize text;
 @synthesize createdAt;
+@synthesize profileImage;
 
 + (NSString *)dateDiff:(NSString *)origDate {
 	
@@ -50,6 +51,7 @@
 	[tweetID release];
 	[text release];
 	[createdAt release];
+	[profileImage release];
 	[super dealloc];
 }
 

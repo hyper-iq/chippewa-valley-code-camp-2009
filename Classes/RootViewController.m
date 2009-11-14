@@ -38,16 +38,17 @@
     return [[[App sharedApp] tweets] count];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-	CGSize aSize;  
-	  
-	aSize = [[[[[App sharedApp] tweets] objectAtIndex:indexPath.row] text] sizeWithFont:[UIFont systemFontOfSize:18]  
-					 constrainedToSize:CGSizeMake(300.0, 1000.0)  
-					 lineBreakMode:UILineBreakModeTailTruncation]; 
-
-	return aSize.height;
-}
+// 4
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//
+//	CGSize aSize;  
+//	  
+//	aSize = [[[[[App sharedApp] tweets] objectAtIndex:indexPath.row] text] sizeWithFont:[UIFont systemFontOfSize:18]  
+//					 constrainedToSize:CGSizeMake(225.0, 1000.0)  
+//					 lineBreakMode:UILineBreakModeTailTruncation]; 
+//
+//	return aSize.height;
+//}
 
 
 // Customize the appearance of table view cells.
@@ -58,20 +59,33 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
 		
-		// Default Cell
-        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		// 1 Default Cell
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		
-		// Cell with Subtitle
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+		// 2 Cell with Subtitle
+        //cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
     }
     
-	// Configure the cell.
-	
-	cell.textLabel.font = [UIFont systemFontOfSize:14];
-	cell.textLabel.numberOfLines = 4;
+	// 1 Configure the cell.
 	cell.textLabel.text = [[[[App sharedApp] tweets] objectAtIndex:indexPath.row] text];
-	cell.detailTextLabel.text = [Tweet dateDiff:[[[[App sharedApp] tweets] objectAtIndex:indexPath.row] createdAt]];
 
+	// 2 Configure the cell.
+//	cell.textLabel.text = [[[[App sharedApp] tweets] objectAtIndex:indexPath.row] text];
+//	cell.detailTextLabel.text = [Tweet dateDiff:[[[[App sharedApp] tweets] objectAtIndex:indexPath.row] createdAt]];
+	
+	// 3 Configure the cell.
+//	cell.textLabel.font = [UIFont systemFontOfSize:14];
+//	cell.textLabel.numberOfLines = 4;
+//	cell.textLabel.text = [[[[App sharedApp] tweets] objectAtIndex:indexPath.row] text];
+//	cell.detailTextLabel.text = [Tweet dateDiff:[[[[App sharedApp] tweets] objectAtIndex:indexPath.row] createdAt]];
+
+	// 5 Enable Image
+//	cell.imageView.image = [UIImage imageWithData:
+//							[NSData dataWithContentsOfURL:
+//							 [NSURL URLWithString:[[[[App sharedApp] tweets] objectAtIndex:indexPath.row] profileImage]]
+//							] 
+//							];
+	
     return cell;
 }
 
